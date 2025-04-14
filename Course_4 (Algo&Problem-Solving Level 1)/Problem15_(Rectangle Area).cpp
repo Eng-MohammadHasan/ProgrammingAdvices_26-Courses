@@ -1,18 +1,18 @@
 #include <iostream>
 using namespace std;
 
-void ReadRectangleSides(float& A, float& B)
+void ReadRectangleSides(float& width, float& length)
 {
 	cout << "Please Enter Rectangle width ? " << endl;
-	cin >> A;
+	cin >> width;
 
 	cout << "Please Enter Rectangle length ? " << endl;
-	cin >> B;
+	cin >> length;
 }
 
-float CalculateRectangleArea(float A, float B)
+float CalculateRectangleArea(float width, float length)
 {
-	return A * B;
+	return width * length;
 }
 
 void PrintRectangleArea(float Area)
@@ -23,10 +23,10 @@ void PrintRectangleArea(float Area)
 
 int main()
 {
-	float A, B;
+	float width, length;
 
-	ReadRectangleSides(A, B);
-	PrintRectangleArea(CalculateRectangleArea(A, B));
+	ReadRectangleSides(width, length);
+	PrintRectangleArea(CalculateRectangleArea(width, length));
 
 	return 0;
 }
