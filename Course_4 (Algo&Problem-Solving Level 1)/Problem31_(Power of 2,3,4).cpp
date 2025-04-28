@@ -1,8 +1,5 @@
 #include <iostream>
-#include <cmath>
-
 using namespace std;
-
 
 int ReadNumber()
 {
@@ -14,38 +11,20 @@ int ReadNumber()
 	return Number;
 }
 
-int PowerOf2(int Number)
+void PowerOf2_3_4(int Number)
 {
-	return pow(Number, 2);
-}
+	int a, b, c;
 
-int PowerOf3(int Number)
-{
-	return pow(Number, 3);
-}
+	a = Number * Number;
+	b = Number * Number * Number;
+	c = Number * Number * Number * Number;
 
-int PowerOf4(int Number)
-{
-	return pow(Number, 4);
-}
-
-void PrintPowerOf2_3_4(int Number)
-{
-	cout << "Power of 2 : \n";
-	cout << PowerOf2(Number) << endl;
-
-	cout << "Power of 3 : \n";
-	cout << PowerOf3(Number) << endl;
-
-	cout << "Power of 4 : \n";
-	cout << PowerOf4(Number) << endl;
+	cout << a << " " << b << " " << c << endl;
 
 }
 
 int main()
 {
-	PrintPowerOf2_3_4(ReadNumber());
-
-
+	PowerOf2_3_4(ReadNumber());
 	return 0;
 }
