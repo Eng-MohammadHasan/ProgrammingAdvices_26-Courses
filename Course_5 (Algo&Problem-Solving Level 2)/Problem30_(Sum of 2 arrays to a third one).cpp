@@ -25,7 +25,7 @@ int RandomNumber(int From, int To)
 	return randomNumber;
 }
 
-void FillArrayWithRandomNumbers(int arr[100], int& arrayLength)
+void FillArrayWithRandomNumbers(int arr[100], int arrayLength)
 {
 	for (int i = 0; i < arrayLength; i++)
 	{
