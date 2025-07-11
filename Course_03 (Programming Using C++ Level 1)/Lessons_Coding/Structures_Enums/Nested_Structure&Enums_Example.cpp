@@ -3,7 +3,7 @@ using namespace std;
 
 
 enum enColor { Red, Green, Yellow, Blue };
-enum enGendor { Male, Female };
+enum enGender { Male, Female };
 enum enMaritalStatus { Single, Married };
 
 
