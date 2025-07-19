@@ -3,7 +3,7 @@ using namespace std;
 
 
 enum enColor { Red, Green, Yellow, Blue };
-enum enGendor { Male, Female };
+enum enGender { Male, Female };
 enum enMaritalStatus { Single, Married };
 
 
@@ -41,7 +41,7 @@ struct stPerson
 
 
 	enMaritalStatus MaritalStatus;
-	enGendor Gender;
+	enGender Gender;
 	enColor FavourateColor;
 };
 
@@ -65,7 +65,7 @@ int main()
 	Person1.ContactInfo.Address.StreetName = "Queen1 Street";
 	Person1.ContactInfo.Address.BuildingNo = "313";
 
-	Person1.Gendor = enGendor::Male;
+	Person1.Gender = enGender::Male;
 	Person1.MaritalStatus = enMaritalStatus::Married;
 	Person1.FavourateColor = enColor::Green;
 
