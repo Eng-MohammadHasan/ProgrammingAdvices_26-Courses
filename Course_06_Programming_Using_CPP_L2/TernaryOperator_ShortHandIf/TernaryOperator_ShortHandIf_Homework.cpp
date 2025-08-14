@@ -15,7 +15,7 @@ int main()
 	(Mark >= 50) ? cout << "Pass" : cout << "Fail";
 
 
-	// Homework
+	// Homework ...
 	string Result;
 
 	cout << "\n\n";
