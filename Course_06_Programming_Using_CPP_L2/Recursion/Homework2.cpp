@@ -4,6 +4,7 @@ using namespace std;
 
 int MyPower(int Base, int Power)
 {
+	// (Base) case,  Stop case , Terminating case !
 	if (Power == 0)
 	{
 		return 1;
@@ -20,3 +21,4 @@ int main()
 
 	return 0;
 }
+
