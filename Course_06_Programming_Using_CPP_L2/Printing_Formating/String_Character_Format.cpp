@@ -18,5 +18,7 @@ int main()
 	printf("Setting the width of c :%*c \n", 4, c);
 	printf("Setting the width of c :%*c \n", 5, c);
 
+	printf("Setting the width of c :%9c \n", c);
+
 	return 0;
 }
