@@ -1,7 +1,27 @@
 #include <iostream>
 #include <vector>
+#include <limits> // for numeric_limits
 
 using namespace std;
+
+int ReadNumber()
+{
+	int Number = 0;
+	cout << "Please enter a number ? \n";
+	cin >> Number;
+		
+	while (cin.fail())
+	{
+		//user didn't input a number 
+		cin.clear();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		cout << "Invalid Number, Enter a valid one : " << endl;
+		
+		cin >> Number;
+	}
+		
+	return Number;
+}
 
 void ReadNumbers(vector<int>& vNumbers)
 {
@@ -10,9 +30,7 @@ void ReadNumbers(vector<int>& vNumbers)
 
 	while (ReadMore == 'Y' || ReadMore == 'y')
 	{
-		cout << "Please Enter a number \n";
-		cin >> Number;
-
+		Number = ReadNumber();
 		vNumbers.push_back(Number);
 
 		cout << "\nDo you want to add more numbers ? Y/N: \n";
@@ -20,7 +38,7 @@ void ReadNumbers(vector<int>& vNumbers)
 	}
 }
 
-void PrintVectorNumbers(vector<int>& vNumbers)
+void PrintVectorNumbers(const vector<int>& vNumbers)
 {
 	cout << "\n";
 	cout << "Numbers vector : \n";
@@ -41,4 +59,5 @@ int main()
 	PrintVectorNumbers(vNumbers);
 
 	return 0;
+
 }
