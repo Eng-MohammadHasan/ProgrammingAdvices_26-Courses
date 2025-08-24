@@ -17,8 +17,8 @@ int main()
 {
 	int a = 10;
 
-	cout << a << endl;
-	cout << &a << endl;
+	cout << "Value of             a = " << a << endl;   
+	cout << "Address/Reference of a = " << &a << endl; 
 
 	Function(a);
 	cout << a << endl;
@@ -29,3 +29,4 @@ int main()
 	cout << "a adress : " << &a << endl;
 	return 0;
 }
+
