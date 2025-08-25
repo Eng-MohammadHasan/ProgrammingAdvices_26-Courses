@@ -11,9 +11,12 @@ int main()
 	cout << &x << endl;
 	cout << &y << endl;
 
+	x = 20;
+	
 	cout << a << endl;
 	cout << x << endl;
 	cout << y << endl;
 
 	return 0;
 }
+
