@@ -24,42 +24,30 @@ int main()
 	// Accessing structure members through pointer using ->
 	cout << "\nUsing Pointer : \n";
 	cout << ptr->Name << endl;
-	cout << ptr->Salary << endl;
-
-	cout << endl << endl;
+	cout << ptr->Salary << endl << endl;
 
 	// Access addresses of structure members using object
 	cout << &Employee1.Name << endl;
-	cout << &Employee1.Salary << endl;
-
-	cout << endl << endl;
+	cout << &Employee1.Salary << endl << endl;
 
 	// Access addresses of structure members using pointer
 	cout << &ptr->Name << endl;
-	cout << &ptr->Salary << endl;
-
-	cout << endl << endl;
+	cout << &ptr->Salary << endl << endl;
 
 	// Address of entire structure vs address of first member
 	cout << &Employee1 << endl;
-	cout << &Employee1.Name << endl;
-
-	cout << endl << endl;
+	cout << &Employee1.Name << endl << endl;
 
 	// Pointer itself holds address of structure
 	cout << ptr << endl;
-	cout << &Employee1 << endl;
-
-	cout << endl << endl;
+	cout << &Employee1 << endl << endl;
 
 	// Address of the pointer variable itself (not what it points to)
-	cout << "Refrence of pointer that refer to the object of the struct : " << &ptr;
-
-	cout << endl << endl;
+	cout << "Refrence of pointer that refer to the object of the struct : " << &ptr << endl << endl;
 
 	// Two equivalent ways to access data through pointer
 	cout << ptr->Name << endl;
-	cout << (*ptr).Name << endl;
+	cout << (*ptr).Name << endl << endl;
 
 	return 0;
 }
