@@ -34,6 +34,7 @@ int main()
 	cout << &ptr->Name << endl;
 	cout << &ptr->Salary << endl << endl;
 
+	// More Test (Operations) ...
 	// Address of entire structure vs address of first member
 	cout << &Employee1 << endl;
 	cout << &Employee1.Name << endl << endl;
