@@ -5,7 +5,7 @@
 using namespace std;
 
 /* The getline built in function ..
-
+	//Streams have a bool conversion !!!!!!!!!!!!!
 		 istream& getline(istream& in, string& str)
 	{
 
@@ -24,6 +24,13 @@ using namespace std;
 			in.setstate(ios::failbit);
 
 		return in;   // allows using it directly in while(condition)
+
+ 		//If str isn’t empty but EOF is reached right after that line, here’s what happens:
+		//The if (str.empty() && in.eof()) check does not run (because str isn’t empty).
+		//The stream in still has eofbit set automatically by .get() when it hit EOF.
+		//So in is returned with eofbit = true, but failbit is not set.
+
+		//👉 Meaning: the line is returned correctly, but on the next call to getline, the stream will evaluate as false (because it’s already at EOF).
 
 	}
 
