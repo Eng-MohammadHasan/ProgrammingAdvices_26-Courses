@@ -45,17 +45,16 @@ void LoadDataFromFileToVector(string FileName, vector <string>& vFileContent)
 	}
 }
 
-//void SaveVectorToFile(string FileName, const vector <string> & vFileContent)
-void SaveVectorToFile(string FileName, vector <string> vFileContent)
+void SaveVectorToFile(string FileName, const vector <string>& vFileContent)
 {
 	fstream MyFile;
 	MyFile.open(FileName, ios::out);// Write Mode
 
 	if (MyFile.is_open())
 	{
-		for (string& Line : vFileContent)
+		for (const string& Line : vFileContent)
 		{
-			if (Line != "")
+			if (!Line.empty())
 			{
 				MyFile << Line << endl;
 			}
@@ -103,12 +102,12 @@ void PrintFileContent(string FileName)
 
 int main()
 {
-	cout << "File Content Before Delete.\n";
+	cout << "File Content Before Update.\n";
 	PrintFileContent("MyFile.txt");
 
 	UpdateRecordInFile("MyFile.txt", "Ali", "Omar");
 
-	cout << "\n\nFile Content After Delete.\n";
+	cout << "\n\nFile Content After Update.\n";
 	PrintFileContent("MyFile.txt");
 
 	return 0;
