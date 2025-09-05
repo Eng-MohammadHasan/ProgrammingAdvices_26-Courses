@@ -12,25 +12,25 @@ int RandomNumber(int From, int To)
 	return randNum;
 }
 
-void FillMatrixWithRandomNumbers(short Matrix[3][3], short Rows, short Columns)
+void FillMatrixWithRandomNumbers(short arr[3][3], short Rows, short Columns)
 {
 	for (int i = 0; i < Rows; i++)
 	{
 		for (int j = 0; j < Columns; j++)
 		{
-			Matrix[i][j] = RandomNumber(1, 100);
+			arr[i][j] = RandomNumber(1, 100);
 		}
 	}
 }
 
-void Print2DArray(short Matrix[3][3], short Rows, short Columns)
+void PrintMatrix(short arr[3][3], short Rows, short Columns)
 {
 
 	for (int i = 0; i < Rows; i++)
 	{
 		for (int j = 0; j < Columns; j++)
 		{
-			cout << setw(3) << Matrix[i][j] << "    ";
+			cout << setw(3) << arr[i][j] << "     ";
 		}
 		cout << endl;
 	}
@@ -41,11 +41,11 @@ int main()
 	//Seeds the random number generator in C++, called only once
 	srand((unsigned)time(NULL));
 
-	short Matrix[3][3];
+	short arr[3][3];
 
-	FillMatrixWithRandomNumbers(Matrix, 3, 3);
+	FillMatrixWithRandomNumbers(arr, 3, 3);
 	cout << "\n The following is a 3x3 random matrix:\n";
-	Print2DArray(Matrix, 3, 3);
+	PrintMatrix(arr, 3, 3);
 
 	system("pause>0");
 }
