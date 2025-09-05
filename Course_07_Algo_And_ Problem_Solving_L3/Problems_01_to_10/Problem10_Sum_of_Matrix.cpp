@@ -34,9 +34,9 @@ void PrintMatrix(int arr[3][3], short Rows, short Cols)
 	}
 }
 
-short SumOfMatrix(int arr[3][3], short Rows, short Cols)
+int SumOfMatrix(int arr[3][3], short Rows, short Cols)
 {
-	short Summation = 0;
+	int Summation = 0;
 
 	for (short i = 0; i < Rows; i++)
 	{
