@@ -14,9 +14,9 @@ int RandomNumber(int From, int To)
 
 void FillMatrixWithRandomNumbers(short arr[3][3], short Rows, short Columns)
 {
-	for (int i = 0; i < Rows; i++)
+	for (short i = 0; i < Rows; i++)
 	{
-		for (int j = 0; j < Columns; j++)
+		for (short j = 0; j < Columns; j++)
 		{
 			arr[i][j] = RandomNumber(1, 100);
 		}
@@ -37,9 +37,9 @@ int RowSum(short arr[3][3], short RowNumber, short Columns)
 void PrintMatrix(short arr[3][3], short Rows, short Columns)
 {
 
-	for (int i = 0; i < Rows; i++)
+	for (short i = 0; i < Rows; i++)
 	{
-		for (int j = 0; j < Columns; j++)
+		for (short j = 0; j < Columns; j++)
 		{
 			cout << setw(3) << arr[i][j] << "     ";
 		}
