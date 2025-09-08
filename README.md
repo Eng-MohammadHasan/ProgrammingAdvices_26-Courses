@@ -1,7 +1,7 @@
 # 🛠️ Developer Roadmap Journey
 
 This repository documents my **2-year learning roadmap** to become a Full-Stack / Backend / Desktop Developer.  
-The roadmap is based on [Programming Advices](https://programmingadvices.com) and includes **24 courses + projects**.  
+The roadmap is based on [Programming Advices](https://programmingadvices.com) and includes **26 courses + projects**.  
 Focus: 90% practical, 10% theoretical — problem solving first, then technology.
 
 ---
@@ -11,38 +11,39 @@ Focus: 90% practical, 10% theoretical — problem solving first, then technology
 ![Developer Roadmap](assets/ProgrammingAdvicesRoadMap.png)
 
 ---
+
 ## 📚 Courses & Progress
 
 ### Level 1 – Foundations
-- [x] 01. Programming Foundations L1
-- [ ] 02. Algorithms & Problem-Solving L1
-- [ ] 03. Programming Using C++ L1
-- [ ] 04. Algorithms & Problem-Solving Solutions L1
+- [x] 01. Foundations Level 1  
+- [x] 02. Algorithms Level 1  
+- [x] 03. C++ Level 1  
+- [x] 04. Advanced Solutions for Algorithms Level 1  
 
 ### Intermediate Stage
-- [ ] 05. Algorithms & Problem-Solving L2
-- [ ] 06. Programming Using C++ L2
-- [ ] 07. Algorithms & Problem-Solving L3
-- [ ] 08. Algorithms & Problem-Solving L4
-- [ ] 09. OOP as it Should Be (Concepts)
-- [ ] 10. Algorithms & Problem-Solving L5
-- [ ] 11. Data Structures L1
+- [x] 05. Algorithms Level 2  
+- [x] 06. C++ Level 2  
+- [x] 07. Algorithms Level 3  
+- [x] 08. Algorithms Level 4  
+- [x] 09. Foundations Level 2  
+- [x] 10. OOP Level 1 🎯 Current  
+- [x] 11. OOP Level 2  
+- [x] 12. Data Structures Level 1  
+- [x] 13. Algorithms Level 5  
 
 ### Specialization Stage
-- [ ] 12. Programming Using C# L1
-- [ ] 13. Database SQL L1
-- [ ] 14. OOP Applications L2
-- [ ] 15. Data Structures L2 in C#
-- [ ] 16. C# & Databases (ADO.NET)
-- [ ] 17. T-SQL
-- [ ] 18. Introduction to RESTful API
-- [ ] 19. Windows Services
+- [x] 14. C# Level 1  
+- [x] 15. Database Level 1: SQL  
+- [x] 16. OOP in C#  
+- [x] 17. Database Project  
+- [x] 18. C# & Database  
+- [ ] 19. Full Project in C#  
+- [ ] 20. C# Level 2  
+- [ ] 21. Database Level 2: T-SQL  
+- [ ] 22. Data Structures Level 2 in C#  
+- [ ] 23. Algorithms Level 6  
+- [ ] 24. Windows Services  
 
-### Final Stage – Projects
-- [ ] 20. Desktop Application Project
-- [ ] 21. API Project
-- [ ] 22. Database-Driven Project
-- [ ] 23. Windows Services Project
-- [ ] 24. Capstone Full-Stack Project
-
----
+### Extra Advanced Stage
+- [ ] 25. Introduction to RESTful API  
+- [ ] 26. SOLID Principles  
