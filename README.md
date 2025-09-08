@@ -8,7 +8,7 @@ Focus: 90% practical, 10% theoretical — problem solving first, then technology
 
 ## 🗺️ Visual Roadmap
 
-![Developer Roadmap](assets/roadmap.png)
+![Developer Roadmap](assets/ProgrammingAdvicesRoadMap.png)
 
 ---
 ## 📚 Courses & Progress
