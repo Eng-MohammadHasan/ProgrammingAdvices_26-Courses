@@ -6,6 +6,11 @@ Focus: 90% practical, 10% theoretical — problem solving first, then technology
 
 ---
 
+## 🗺️ Visual Roadmap
+
+![Developer Roadmap](ProgrammingAdvices - RoadMap (2).png)
+
+---
 ## 📚 Courses & Progress
 
 ### Level 1 – Foundations
