@@ -19,7 +19,7 @@ int main()
 	S1.append(" @ProgrammingAdvices");
 	cout << S1 << endl;
 
-	//insert Ali in position 7
+	//insert Ali in position 10
 	S1.insert(10, " Ali");
 	cout << S1 << endl;
 
@@ -66,3 +66,4 @@ int main()
 
 	return 0;
 }
+
