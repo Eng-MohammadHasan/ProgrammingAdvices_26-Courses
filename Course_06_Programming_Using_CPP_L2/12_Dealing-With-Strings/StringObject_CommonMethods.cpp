@@ -5,65 +5,77 @@ using namespace std;
 
 int main()
 {
-	//Built in Functions (Methods)
+    // Original string
+    string S1 = "My Name is Mohammad Abu-Hadhoud, I love programming.";
 
-	string S1 = "My Name is Mohammad Abu-Hadhoud, I love programming.";
+    //----------------------
+    // Basic Info
+    //----------------------
+    cout << "Length: " << S1.length() << endl;        // Prints the length of the string
+    cout << "Character at 3: " << S1.at(3) << endl;  // Returns the letter at position 3
 
-	//Prints the length of the string
-	cout << S1.length() << endl;
+    //----------------------
+    // Modifying Strings
+    //----------------------
+    S1.append(" @ProgrammingAdvices");  // Adds to the end
+    cout << "After append: " << S1 << endl;
 
-	//Returns the letter at position 3 
-	cout << S1.at(3) << endl;
+    S1.insert(10, " Ali");               // Insert at position 10
+    cout << "After insert: " << S1 << endl;
 
-	//Adds @ProgrammingAdvices to the end of string
-	S1.append(" @ProgrammingAdvices");
-	cout << S1 << endl;
+    S1.push_back('X');                    // Add a character at the end
+    cout << "After push_back: " << S1 << endl;
 
-	//insert Ali in position 10
-	S1.insert(10, " Ali");
-	cout << S1 << endl;
+    S1.pop_back();                        // Remove last character
+    cout << "After pop_back: " << S1 << endl;
 
-	//Prints all the next 8 letters from position 16.
-	cout << S1.substr(16, 8) << endl;
+    //----------------------
+    // Substrings and Searching
+    //----------------------
+    cout << "Substring (16,8): " << S1.substr(16, 8) << endl;  // Next 8 letters from pos 16
 
-	//Adds one character to the end of the string
-	S1.push_back('X');
-	cout << S1 << endl;
+    cout << "Find 'Ali': " << S1.find("Ali") << endl;          // Finds Ali
+    cout << "Find 'ali': " << S1.find("ali") << endl;          // Finds ali (not found)
 
-	//Removes one character from the end of the string
-	S1.pop_back();
-	cout << S1 << endl;
-
-	//Finds Ali in the string
-	cout << S1.find("Ali") << endl;
-
-	//Finds ali in the string
-	cout << S1.find("ali") << endl;
-
-	if (S1.find("ali") == S1.npos)
-	{
-		cout << "ali isn't found";
-	}
-    // the correct way (Recommended) is  , because (string::npos) is constant static member , it's not a member of an object like S1--->
     if(S1.find("ali") == string::npos)
-    {
-        cout << "ali isn't found";
-    }
+        cout << "'ali' isn't found" << endl;
 
-	//clears all string letters.
-	S1.clear();
-	cout << S1 << endl;
+    //----------------------
+    // Clearing and Checking
+    //----------------------
+    S1.clear();                       // Clears all letters
+    cout << "After clear, S1: '" << S1 << "'" << endl;
 
-    //Replace Method
-    //          012345678910
+    //----------------------
+    // Replace Example
+    //----------------------
     string s = "I like cats";
-    s.replace(7, 4, "dogs");
-    // 7 → start index
-    // 4 → number of characters to replace
-    // "dogs" → new string
+    s.replace(7, 4, "dogs");          // Replace 4 chars starting at index 7 with "dogs"
+    cout << "After replace: " << s << endl;  // Output: I like dogs
 
-    cout << s;  // Output: I like dogs
+    //----------------------
+    // Erase Example
+    //----------------------
+    string t = "Hello World";
+    t.erase(5, 6);                     // Erase 6 characters starting from index 5
+    cout << "After erase: " << t << endl;  // Output: Hello
 
-	return 0;
+    //----------------------
+    // Additional Common Methods
+    //----------------------
+    string u = "Example";
+
+    cout << "Is empty? " << (u.empty() ? "Yes" : "No") << endl;  // Check if empty
+
+    u.resize(4);                        // Resize string
+    cout << "After resize: " << u << endl;  // Output: Exam
+
+    string a = "Apple", b = "Banana";
+    a.swap(b);                           // Swap contents
+    cout << "After swap, a: " << a << ", b: " << b << endl;
+
+    string c = "abc", d = "abd";
+    cout << "Compare c vs d: " << c.compare(d) << endl;  // Negative because c < d
+
+    return 0;
 }
-
