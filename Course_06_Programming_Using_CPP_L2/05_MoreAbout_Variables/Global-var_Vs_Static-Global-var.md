@@ -1,5 +1,5 @@
 ## 1. Global variable (normal)
-###✅ Accessible across files.
+### ✅ Accessible across files.
 ```cpp
 // file1.cpp
 #include <iostream>
