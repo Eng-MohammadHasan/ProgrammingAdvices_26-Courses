@@ -21,6 +21,7 @@ int main() {
 	int b = 20;
 	p = &b;
 
+	cout << &b << endl;
 	cout << p << endl;
 	cout << *p << endl;
 
