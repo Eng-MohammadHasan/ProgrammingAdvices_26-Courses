@@ -69,7 +69,7 @@ int main()
 
 	cout << (static_cast<vector<stPizza>*>(ptr5))->at(0).name << endl;  // prints Margherita
 
-	/*
+	/* Difference between arrays and vectors when using pointers & casting :)
 	Array case:
 	-----------
 	int arr[3] = {1,2,3};
