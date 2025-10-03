@@ -61,13 +61,13 @@ int main()
 	void* ptr4;
 	ptr4 = &vNumbers;
 
-	cout << (static_cast<vector<int>*>(ptr))->at(2); // prints 30
+	cout << (static_cast<vector<int>*>(ptr4))->at(2); // prints 30
 
 	//Vector of Structure
 	vector<stPizza> vMenu = { {"Margherita", 5.5}, {"Pepperoni", 7.0} };
-	void* ptr = &vMenu;
+	void* ptr5 = &vMenu;
 
-	cout << (static_cast<vector<stPizza>*>(ptr))->at(0).name << endl;  // prints Margherita
+	cout << (static_cast<vector<stPizza>*>(ptr5))->at(0).name << endl;  // prints Margherita
 
 	return 0;
 }
