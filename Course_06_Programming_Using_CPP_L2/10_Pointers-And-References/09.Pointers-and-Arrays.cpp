@@ -12,7 +12,7 @@ int main()
 	//ptr + 2 is equivalent to &arr[2]
 	//ptr + 3 is equivalent to &arr[3]
 
-	/*for (int& Items : arr)
+	for (int& Items : arr)
 	{
 		cout << &Items << endl;
 		cout << &arr[i] << endl;
@@ -20,7 +20,7 @@ int main()
 	
 		cout << endl;
 	}
-	cout << endl << endl;*/
+	cout << endl << endl;
 
 	cout << "Addresses are :\n";
 	cout << ptr << endl;
