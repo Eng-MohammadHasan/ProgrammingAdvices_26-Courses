@@ -69,5 +69,34 @@ int main()
 
 	cout << (static_cast<vector<stPizza>*>(ptr5))->at(0).name << endl;  // prints Margherita
 
+	/*
+	Array case:
+	-----------
+	int arr[3] = {1,2,3};
+	ptr = arr;
+	
+	- Here arr decays to a pointer to its first element (int*).
+	- So ptr really points to an int, not an "array object".
+	- That’s why you cast to int* directly.
+	
+	
+	Vector case:
+	------------
+	vector<stPizza> vMenu = { ... };
+	ptr5 = &vMenu;
+	
+	- Here &vMenu is a pointer to the whole vector object, not to the first element.
+	- So the correct type is vector<stPizza>*.
+	- If you cast to just stPizza*, it would be wrong 
+	  (because memory layout of vector is not the same as a raw array).
+	
+	
+	👉 Key Point:
+	------------
+	- Arrays decay to element pointers automatically.  
+	- Vectors do not.  
+	- That’s why with vector you must cast to vector<stPizza>*, not stPizza*.
+*/
+
 	return 0;
 }
