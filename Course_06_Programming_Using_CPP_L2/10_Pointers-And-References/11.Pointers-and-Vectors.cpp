@@ -3,11 +3,11 @@
 using namespace std;
 /*
 
-  *ptr holds the address of the vector object itself, not its elements. 
+  ptr holds the address of the vector object itself, not its elements. 
   
-  *The vector object contains metadata (size, capacity, pointer to the actual array).
+  The vector object contains metadata (size, capacity, pointer to the actual array).
   
-  *The first element of the vector is somewhere else, inside the dynamically allocated array.
+  The first element of the vector is somewhere else, inside the dynamically allocated array.
   
 */
 int main() {
