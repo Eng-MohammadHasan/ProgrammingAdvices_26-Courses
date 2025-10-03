@@ -50,7 +50,6 @@ int main()
 
 	//Array
 	int arr[3] = { 1,2,3 };
-	void* ptr3;
 	ptr = arr;
 
 	cout << (static_cast<int*>(ptr))[1] << endl; // prints 2
