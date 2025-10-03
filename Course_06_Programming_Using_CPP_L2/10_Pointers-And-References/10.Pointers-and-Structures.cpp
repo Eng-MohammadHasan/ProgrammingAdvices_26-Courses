@@ -27,8 +27,6 @@ int main()
 	cout << ptr->Salary << endl << endl;
 
 	// Access addresses of structure members using object
-	cout << ptr << endl;
-    cout << &Employee1 << endl;
 
 	cout << &Employee1.Name << endl;
 	cout << &Employee1.Salary << endl << endl;
