@@ -15,6 +15,10 @@ int main()
 	/*for (int& Items : arr)
 	{
 		cout << &Items << endl;
+		cout << &arr[i] << endl;
+		i++;
+	
+		cout << endl;
 	}
 	cout << endl << endl;*/
 
