@@ -22,7 +22,7 @@ int main()
 	string StringToReplace = "Jordan";
 	string ReplaceTo = "USA";
 
-	cout << "\nOrigial String\n" << S1;
+	cout << "\nOriginal String\n" << S1;
 	cout << "\n\nString After Replace:";
 	cout << "\n" << ReplaceWordInStringUsingBuiltInFunctin(S1, StringToReplace, ReplaceTo);
 
@@ -30,3 +30,4 @@ int main()
 
 
 }
+
