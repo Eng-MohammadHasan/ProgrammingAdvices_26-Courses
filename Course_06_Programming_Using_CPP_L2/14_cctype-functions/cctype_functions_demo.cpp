@@ -48,19 +48,3 @@ int main() {
     return 0;
 }
 
-/*
-Expected Output (example):
-isalnum('A') = true
-isalpha('z') = true
-isdigit('5') = true
-isxdigit('F') = true
-islower('z') = true
-isupper('A') = true
-isspace(' ') = true
-ispunct('!') = true
-isprint('A') = true
-isgraph('A') = true
-iscntrl('\n') = true
-tolower('A') = a
-toupper('z') = Z
-*/
