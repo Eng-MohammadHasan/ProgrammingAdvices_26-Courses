@@ -77,5 +77,17 @@ int main()
     string c = "abc", d = "abd";
     cout << "Compare c vs d: " << c.compare(d) << endl;  // Negative because c < d
 
+    // ✅ String functions that modify in place (no need to reassign)
+    string t = "mohammad";
+    t.erase(pos, len);
+    t.append("text");
+    t.insert(pos, "text");
+    t.replace(pos, len, "text");
+    t.clear();
+    t.resize(newSize);
+    t.pop_back();
+    t.push_back('x');
+
     return 0;
 }
+
