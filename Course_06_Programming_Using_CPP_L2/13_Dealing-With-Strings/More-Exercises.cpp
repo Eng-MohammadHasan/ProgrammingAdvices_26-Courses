@@ -7,7 +7,7 @@ int main()
 {
 
 	string S1 = "My Name is Mohammad Hasan Abdelqader";
-	string S2;
+	string S2 = "";
 
 	cout << "\n*********************************\n";
 
@@ -79,3 +79,4 @@ int main()
 
 	return 0;
 }
+
