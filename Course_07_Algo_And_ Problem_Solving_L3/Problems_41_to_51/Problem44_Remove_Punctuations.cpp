@@ -13,6 +13,7 @@ string RemovePunctuations(string S1)
 		if (ispunct(S1[i]))
 		{
 			S1 = S1.erase(i, 1);
+			i--;
 		}
 	}
 
@@ -21,7 +22,7 @@ string RemovePunctuations(string S1)
 
 int main()
 {
-	string S1 = "Welcome to Jordan, Jordan is a nice country: it's amazing.";
+	string S1 = "Welcome ><<????,,to<< Jordan, Jordan is a nice country: it's amazing.";
 
 	cout << "\nOriginal String\n" << S1;
 
