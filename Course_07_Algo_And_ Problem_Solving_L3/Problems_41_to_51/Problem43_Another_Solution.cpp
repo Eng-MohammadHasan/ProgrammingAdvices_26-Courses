@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cctype>
+#include <string>
 
 using namespace std;
 
@@ -43,10 +44,8 @@ string LowerAllString(string S1)
 
 string ReplaceWordsWithMatchCase(string S1, string StringToReplace, string sReplaceTo)
 {
-	vector <string> Tokens;
+	vector <string> Tokens = SplitString(S1, " ");
 	string S2 = "";
-
-	Tokens = SplitString(S1, " ");
 
 	for (string& word : Tokens)
 	{
