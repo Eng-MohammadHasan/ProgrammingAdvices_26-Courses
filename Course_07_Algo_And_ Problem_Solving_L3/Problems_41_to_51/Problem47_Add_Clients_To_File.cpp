@@ -43,7 +43,7 @@ sClient ReadNewClient()
 	return Client;
 }
 
-string ConvertRecordToLine(sClient ClientData, string Separator = "#//#")
+string ConvertRecordToLine(sClient& ClientData, string Separator = "#//#")
 {
 	string stClientRecord = "";
 
