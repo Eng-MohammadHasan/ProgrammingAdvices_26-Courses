@@ -163,12 +163,18 @@ void ShowClientsListScreen()
 	cout << "\n\t\t\t\t\tClient List ( " << vClients.size() << " ) Client(s).";
 	ClientCardTableHeader();
 
-	for (const sClient& Client : vClients)
+	if (vClients.size() == 0)
 	{
-		PrintClientRecordLine(Client);
-		cout << endl;
+		cout << "\t\t\t\tNo Clients Available In the System!";
 	}
-
+	else
+	{
+		for (const sClient& Client : vClients)
+		{
+			PrintClientRecordLine(Client);
+			cout << endl;
+		}
+	}
 	cout << "\n_______________________________________________________";
 	cout << "_________________________________________\n" << endl;
 }
