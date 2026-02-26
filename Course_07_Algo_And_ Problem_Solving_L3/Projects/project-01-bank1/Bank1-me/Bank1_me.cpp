@@ -134,7 +134,7 @@ vector <sClient> LoadClientsDataFromFile(const string& FileName)
 	return vClients;
 }
 
-void ClientCardTableHeader()
+void PrintClientListHeader()
 {
 	cout << "\n_______________________________________________________";
 	cout << "_________________________________________\n" << endl;
@@ -156,12 +156,12 @@ void PrintClientRecordLine(const sClient& Client)
 	cout << "| " << left << setw(12) << Client.AccountBalance;
 }
 
-void ShowClientsListScreen()
+void ShowAllClientsScreen()
 {
 	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
 
 	cout << "\n\t\t\t\t\tClient List ( " << vClients.size() << " ) Client(s).";
-	ClientCardTableHeader();
+	PrintClientListHeader();
 
 	if (vClients.size() == 0)
 	{
@@ -183,7 +183,6 @@ void GoBackToMainMenu()
 {
 	cout << "\n\nPress any key to go back to Main Menu...";
 	system("pause>0");
-	system("cls");
 	ShowMainMenu();
 }
 
@@ -217,13 +216,14 @@ sClient ReadNewClientData()
 	sClient Client;
 
 	cout << "\nEnter Account Number? ";
+	// Usage of std::ws will extract all the whitespaces character
 	getline(cin >> ws, Client.AccountNumber);
 
 	while (ClientExistByAccountNumber(Client.AccountNumber, vClients))
 	{
 		cout << "\nClient with [" << Client.AccountNumber
 			<< " already exists, Enter another Account Number? ";
-		getline(cin, Client.AccountNumber);
+		getline(cin >> ws, Client.AccountNumber);
 	}
 
 	cout << "Enter PinCode? ";
@@ -512,39 +512,47 @@ void PerformChosenMainMenuOption(enMainMenuOptions MainMenuOption)
 	switch (MainMenuOption)
 	{
 	case enMainMenuOptions::eShowClients:
+	{
 		system("cls");
-		ShowClientsListScreen();
+		ShowAllClientsScreen();
 		GoBackToMainMenu();
 		break;
-
+	}
 	case enMainMenuOptions::eAddNewClient:
+	{
 		system("cls");
 		ShowAddNewClientsScreen();
 		GoBackToMainMenu();
 		break;
-
+	}
 	case enMainMenuOptions::eDeleteClient:
+	{
 		system("cls");
 		ShowDeleteClientScreen();
 		GoBackToMainMenu();
 		break;
-
+	}
 	case enMainMenuOptions::eUpdateClient:
+	{
 		system("cls");
 		ShowUpdateClientScreen();
 		GoBackToMainMenu();
 		break;
-
+	}
 	case enMainMenuOptions::eFindClient:
+	{
 		system("cls");
 		ShowFindClientScreen();
 		GoBackToMainMenu();
 		break;
-
+	}
 	case enMainMenuOptions::eExit:
+	{
 		system("cls");
 		ShowEndScreen();
 		break;
+	}
+
 	}
 }
 
@@ -564,6 +572,7 @@ void PrintMainMenuScreen()
 
 void ShowMainMenu()
 {
+	system("cls");
 	PrintMainMenuScreen();
 
 	enMainMenuOptions MenuOption = ReadMainMenuOption();
@@ -574,5 +583,6 @@ int main()
 {
 	ShowMainMenu();
 
+	system("pause>0");
 	return 0;
 }
