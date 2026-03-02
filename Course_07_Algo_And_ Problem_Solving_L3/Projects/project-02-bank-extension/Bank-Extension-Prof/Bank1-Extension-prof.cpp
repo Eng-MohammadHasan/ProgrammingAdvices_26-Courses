@@ -36,21 +36,70 @@ enum enTransactionsMenuOptions
 	eShowTotalBalances = 3, eReturnToMainMenu = 4
 };
 
-unsigned short ReadNumberInRange(unsigned short From, unsigned short To)
+unsigned short ReadShortNumberInRange(
+	unsigned short From,
+	unsigned short To,
+	const string& Message)
 {
 	unsigned short Number = 0;
-	cin >> Number;
 
-	while (cin.fail() || (Number < From || Number > To))
+	while (true)
 	{
-		cin.clear();
-		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		cout << "Invalid Input, Enter a valid one : " << endl;
-
+		cout << Message;
 		cin >> Number;
+
+		if (!cin.fail() && Number >= From && Number <= To)
+			return Number;
+
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Invalid Input! Please enter a number between "
+			<< From << " and " << To << ".\n";
 	}
+}
+
+double ReadPositiveDouble(const string& Message)
+{
+	double Number = 0.0;
+	bool IsInputValid = false;
+
+	do
+	{
+		cout << Message;
+		cin >> Number;
+
+		if (!cin.fail() && Number >= 0)
+		{
+			IsInputValid = true;
+		}
+		else
+		{
+			cin.clear();
+			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			cout << "Invalid amount, Please enter a positive number.\n";
+		}
+	} while (!IsInputValid);
 
 	return Number;
+}
+
+string ReadNonEmptyString(const string& Message)
+{
+	string Input = "";
+
+	do
+	{
+		cout << Message;
+		getline(cin >> ws, Input);
+
+		if (Input.empty())
+		{
+			cout << "Input cannot be empty.\n";
+		}
+
+	} while (Input.empty());
+
+	return Input;
 }
 
 vector<string> SplitString(string S1, string Delimiter)
@@ -198,8 +247,8 @@ void GoBackToMainMenu()
 enMainMenuOptions ReadMainMenuOption()
 {
 	unsigned short OptionNumber;
-	cout << "Choose what do you want to do? [1 to 7]? ";
-	OptionNumber = ReadNumberInRange(1, 7);
+	OptionNumber = ReadShortNumberInRange(1, 7,
+		"Choose what do you want to do? [1 to 7]? ");
 
 	return (enMainMenuOptions)OptionNumber;
 }
@@ -225,27 +274,22 @@ sClient ReadNewClientData()
 	sClient Client;
 
 	cout << "\nEnter Account Number? ";
-	// Usage of std::ws will extract all the whitespaces character
-	getline(cin >> ws, Client.AccountNumber);
+	Client.AccountNumber = ReadNonEmptyString("Enter Account Number? ");
 
 	while (ClientExistByAccountNumber(Client.AccountNumber, vClients))
 	{
 		cout << "\nClient with [" << Client.AccountNumber
 			<< " already exists, Enter another Account Number? ";
-		getline(cin >> ws, Client.AccountNumber);
+		Client.AccountNumber = ReadNonEmptyString("Enter Account Number? ");
 	}
 
-	cout << "Enter PinCode? ";
-	getline(cin, Client.PinCode);
+	Client.PinCode = ReadNonEmptyString("Enter PinCode? ");
 
-	cout << "Enter Name? ";
-	getline(cin, Client.Name);
+	Client.Name = ReadNonEmptyString("Enter Name? ");
 
-	cout << "Enter Phone? ";
-	getline(cin, Client.Phone);
+	Client.Phone = ReadNonEmptyString("Enter Phone? ");
 
-	cout << "Enter AccountBalance? ";
-	cin >> Client.AccountBalance;
+	Client.AccountBalance = ReadPositiveDouble("Enter Account Balance? ");
 
 	return Client;
 }
@@ -298,9 +342,7 @@ void ShowAddNewClientsScreen()
 string ReadClientAccountNumber()
 {
 	string AccountNumber = "";
-
-	cout << "Please Enter AccountNumber? ";
-	cin >> AccountNumber;
+	AccountNumber = ReadNonEmptyString("Please Enter Account Number? ");
 
 	return AccountNumber;
 }
@@ -422,17 +464,13 @@ sClient ChangeClientRecord(const string& AccountNumber)
 
 	Client.AccountNumber = AccountNumber;
 
-	cout << "\n\nEnter PinCode? ";
-	getline(cin >> ws, Client.PinCode);
+	Client.PinCode = ReadNonEmptyString("Enter PinCode? ");
 
-	cout << "Enter Name? ";
-	getline(cin, Client.Name);
+	Client.Name = ReadNonEmptyString("Enter Name? ");
 
-	cout << "Enter Phone? ";
-	getline(cin, Client.Phone);
+	Client.Phone = ReadNonEmptyString("Enter Phone? ");
 
-	cout << "Enter AccountBalance? ";
-	cin >> Client.AccountBalance;
+	Client.AccountBalance = ReadPositiveDouble("Enter Account Balance? ");
 
 	return Client;
 }
@@ -525,12 +563,12 @@ void GoBackToTransactionsMenuScreen()
 
 enTransactionsMenuOptions ReadTransactionsMenuOption()
 {
-	unsigned short TransactionOptionNumber;
+	unsigned short TransactionChoice;
 
-	cout << "\nChoose what do you want to do? [1 to 4]? ";
-	TransactionOptionNumber = ReadNumberInRange(1, 4);
+	TransactionChoice = ReadShortNumberInRange(1, 4,
+		"Choose what do you want to do? [1 to 4]? ");
 
-	return (enTransactionsMenuOptions)TransactionOptionNumber;
+	return (enTransactionsMenuOptions)TransactionChoice;
 }
 
 bool DepositToClientBalanceByAccountNumber(const string& AccountNumber, double DepositAmount, vector<sClient>& vClients)
@@ -565,11 +603,11 @@ void ShowDepositScreen()
 	cout << "\t Deposit Screen ";
 	cout << "\n--------------------------------------\n";
 
-	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
-	string AccountNumber;
 	sClient Client;
 
-	AccountNumber = ReadClientAccountNumber();
+	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
+	string AccountNumber = ReadClientAccountNumber();
+
 	while (!FindClientByAccountNumber(AccountNumber, vClients, Client))
 	{
 		cout << "\nClient with [" << AccountNumber << "] does not exist.\n";
@@ -578,11 +616,18 @@ void ShowDepositScreen()
 
 	PrintClientCard(Client);
 
-	double DepositAmount;
-	cout << "\n\nPlease enter deposit amount? \n";
-	cin >> DepositAmount;
+	double DepositAmount = 0.0;
+	DepositAmount = ReadPositiveDouble("Please enter deposit amount? ");
 
 	DepositToClientBalanceByAccountNumber(AccountNumber, DepositAmount, vClients);
+}
+
+void PrintClientRecordBalanceLine(const sClient& Client)
+{
+	cout << "| " << left << setw(15) << Client.AccountNumber;
+	cout << "| " << left << setw(40) << Client.Name;
+	cout << "| " << left << setw(12) << Client.AccountBalance;
+	cout << endl;
 }
 
 double CountTotalBalances(const vector<sClient>& vClients)
@@ -601,6 +646,7 @@ void ShowTotalBalances()
 {
 	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
 
+	// Header
 	cout << "\n\t\t\t\t\tBalances List ( " << vClients.size() << " ) Client(s).";
 	cout << "\n_______________________________________________________";
 	cout << "_________________________________________\n" << endl;
@@ -618,10 +664,7 @@ void ShowTotalBalances()
 	{
 		for (const sClient& Client : vClients)
 		{
-			cout << "| " << left << setw(15) << Client.AccountNumber;
-			cout << "| " << left << setw(40) << Client.Name;
-			cout << "| " << left << setw(12) << Client.AccountBalance;
-			cout << endl;
+			PrintClientRecordBalanceLine(Client);
 		}
 	}
 	cout << "\n_______________________________________________________";
@@ -638,16 +681,15 @@ void ShowTotalBalancesScreen()
 
 double ReadValidWithdrawAmount(double ClientAccountBalance)
 {
-	double WithdrawAmount;
-	cout << "\n\nPlease enter withdraw amount? \n";
-	cin >> WithdrawAmount;
+	double WithdrawAmount = 0.0;
+	WithdrawAmount = ReadPositiveDouble("Please enter withdraw amount? ");
 
-	while (ClientAccountBalance < WithdrawAmount)
+	// Validate that the amount does not exceeds the balance
+	while (WithdrawAmount > ClientAccountBalance)
 	{
-		cout << "\n\nAmount Exceeds the balance, you can withdraw up to : "
-			<< ClientAccountBalance;
-		cout << "\nPlease enter another amount? ";
-		cin >> WithdrawAmount;
+		cout << "\nAmount Exceeds the balance, you can withdraw up to : "
+			<< ClientAccountBalance << endl;
+		WithdrawAmount = ReadPositiveDouble("Please enter another amount? ");
 	}
 
 	return WithdrawAmount;
@@ -685,11 +727,11 @@ void ShowWithdrawScreen()
 	cout << "\t Withdraw Screen ";
 	cout << "\n--------------------------------------\n";
 
-	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
-	string AccountNumber;
 	sClient Client;
 
-	AccountNumber = ReadClientAccountNumber();
+	vector<sClient> vClients = LoadClientsDataFromFile(ClientsFileName);
+	string AccountNumber = ReadClientAccountNumber();
+
 	while (!FindClientByAccountNumber(AccountNumber, vClients, Client))
 	{
 		cout << "\nClient with [" << AccountNumber << "] does not exist.\n";
@@ -700,11 +742,14 @@ void ShowWithdrawScreen()
 
 	double WithdrawAmount = ReadValidWithdrawAmount(Client.AccountBalance);
 	WithdrawFromClientBalanceByAccountNumber(AccountNumber, WithdrawAmount, vClients);
+
+	// or ... (multiply the amount by * -1) ;)
+	//DepositToClientBalanceByAccountNumber(AccountNumber, WithdrawAmount * -1, vClients);
 }
 
-void PerformTransactionsMenuOption(enTransactionsMenuOptions TransactionMenuChoice)
+void PerformTransactionsMenuOption(enTransactionsMenuOptions TransactionMenuOption)
 {
-	switch (TransactionMenuChoice)
+	switch (TransactionMenuOption)
 	{
 	case enTransactionsMenuOptions::eDeposit:
 	{
@@ -729,7 +774,6 @@ void PerformTransactionsMenuOption(enTransactionsMenuOptions TransactionMenuChoi
 	}
 	case enTransactionsMenuOptions::eReturnToMainMenu:
 	{
-		system("cls");
 		ShowMainMenu();
 		break;
 	}
